@@ -2,6 +2,7 @@
 
 > 症状文案原文：**「无法更新远程控制状态」**、**「无法启用远程控制」**、**「无法启用远程控制。请重试」**
 > 英文关键词：*ChatGPT desktop app "remote control" fails on Windows, "Could not enable remote control", Codex remote control not working, os error 10060, wss://codex-cloud-backend.chatgpt.com, HTTP_PROXY not honored, mihomo TUN "The device is not ready for use"*
+> 上游 issue：<https://github.com/openai/codex/issues/55557>
 
 本文记录一次**完整、可复现**的排障过程：从「ChatGPT 桌面端 → 设置 → 连接 → 控制此电脑 → 允许连接」点击后弹红框报错，
 到最终定位到 **DNS 污染 + 代理未被原生进程继承** 双重原因，并给出经过验证的修复方案与可复用脚本。
@@ -305,6 +306,10 @@ wss://codex-cloud-backend.chatgpt.com/     ← app 包内硬编码的 "Long-live
 * 结果：它直连 → 命中伪造 IP → `SynSent` → `WebSocket was closed before the connection was established`（1006）。
 
 在「系统代理 + 无 TUN」这一在中国大陆**非常普遍**的环境下，Codex 的云端长连接必然不可用。
+
+**已提交上游 issue：<https://github.com/openai/codex/issues/55557>**
+（`bug(windows-os): desktop app "Long-lived" host WebSocket ignores system proxy and HTTP_PROXY, hardcoded URL`）
+
 详细的复现步骤、日志证据、已排除项和建议修复方向见
 [`docs/upstream-issue-draft.md`](docs/upstream-issue-draft.md)。
 

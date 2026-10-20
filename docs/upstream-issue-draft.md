@@ -1,8 +1,11 @@
 # 上游 Issue 草稿：桌面端长连接通道不遵循任何代理
 
 > 目标仓库：<https://github.com/openai/codex>
-> 建议标签：`bug` `windows-os`
-> 状态：**待提交**（本文是草稿，尚未在 GitHub 上创建 issue）
+> **状态：✅ 已提交 —— https://github.com/openai/codex/issues/55557**
+> 实际标题：`bug(windows-os): desktop app "Long-lived" host WebSocket ignores system proxy and HTTP_PROXY, hardcoded URL`
+> 标签：`bug`、`windows-os`（**未能自动打上**：外部贡献者无 `addLabelsToLabelable` 权限，
+> 标签需由 maintainer/triage 补加；标题里已带 `bug(windows-os)` 前缀）
+> 本文保留为**提交稿存档**（含更多原始细节：完整 A/B 表、UA 测试矩阵、mihomo 侧证据）。
 
 ---
 
