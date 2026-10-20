@@ -1,0 +1,16 @@
+# 诊断输出
+*.log
+reports/
+out/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
